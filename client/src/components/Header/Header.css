@@ -1,0 +1,34 @@
+#appTitle {
+  font-size: 35px;
+  font-weight: 300;
+  flex: 1;
+}
+.product-filter {
+  display: flex;
+  padding: 30px 0;
+}
+
+.sort {
+  display: flex;
+  /* align-self: flex-end; */
+}
+
+.collection-sort {
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-sort:first-child {
+  padding-right: 20px;
+}
+
+.collection-sort label {
+  color: #666;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 2em;
+  text-transform: uppercase;
+}
+.price-label {
+  text-align: center;
+}

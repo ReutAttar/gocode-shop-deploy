@@ -1,0 +1,300 @@
+@import "~antd/dist/antd.css";
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  /* font-size: 100%; */
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: ’’;
+  content: none;
+}
+/* remember to define visible focus styles! 
+:focus{
+  outline:?????;
+} */
+
+/* remember to highlight inserts somehow! */
+ins {
+  text-decoration: none;
+}
+del {
+  text-decoration: line-through;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*------------------------------------*\
+$MAIN
+\*------------------------------------*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+
+body {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1240px;
+  min-width: 350px;
+  font-family: "Roboto", sans-serif;
+  font-family: "Oswald", sans-serif;
+  background-color: #f6f6f6;
+}
+@media (min-width: 920px) {
+  .product-card {
+    flex: 1 16%;
+  }
+  .onSale-label {
+    left: -45px;
+  }
+}
+
+@media (max-width: 920px) {
+  .product-card {
+    flex: 1 23%;
+  }
+  .onSale-label {
+    left: -38px;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-card {
+    flex: 1 46%;
+  }
+  .onSale-label {
+    left: -35px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    margin-bottom: 20px;
+  }
+  .onSale-label {
+    left: -30px;
+  }
+
+  .product-filter {
+    flex-direction: column;
+  }
+
+  .sort {
+    align-self: flex-start;
+  }
+}
+
+.navigation {
+  background-color: rgb(0, 0, 0);
+  font-size: 1.5rem;
+}
+
+.navigation ul {
+  padding: 5px 0px;
+}
+
+.navigation li {
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navigation li a {
+  color: white;
+  padding: 5px 16px;
+}
+
+.navigation li a:hover {
+  background-color: white;
+  color: black;
+  border-bottom: rgb(209, 209, 209) solid 3px;
+}
+
+button.switch {
+  margin: 0;
+  padding: 0;
+  width: 70px;
+  height: 26px;
+  border: 1px solid black;
+  display: inline-block;
+  margin-right: 0.25em;
+  margin-bottom: 0.25em;
+  line-height: 20px;
+  vertical-align: middle;
+  text-align: center;
+  font: 12px "Open Sans", "Arial", serif;
+  cursor: pointer;
+}
+
+button.switch span {
+  padding: 0 4px;
+  pointer-events: none;
+}
+
+[role="switch"][aria-checked="false"] :first-child,
+[role="switch"][aria-checked="true"] :last-child {
+  background: black;
+  color: #eef;
+}
+
+[role="switch"][aria-checked="false"] :last-child,
+[role="switch"][aria-checked="true"] :first-child {
+  color: #bbd;
+}
+
+/* label.switch {
+  font: 16px "Open Sans", "Arial", sans-serif;
+  line-height: 20px;
+  user-select: none;
+  vertical-align: middle;
+} */

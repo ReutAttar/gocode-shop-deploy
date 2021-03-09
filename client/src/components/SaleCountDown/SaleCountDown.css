@@ -1,0 +1,29 @@
+.divCountdown {
+  width: 100%;
+  justify-content: center;
+  font-size: 18px;
+  position: sticky;
+  top: 0;
+  background-color: #455a64;
+  padding: 10px;
+  margin: 10px 0px;
+  z-index: 2;
+}
+.Text {
+  font-size: 1.5em;
+  text-align: center;
+  color: #f6f6f6;
+}
+.TextSaleOver {
+  font-size: 1.5em;
+  text-align: center;
+  color: red;
+  /* color: #fc4141; */
+}
+.Countdown {
+  font-size: 1.5em;
+  font-weight: 800;
+  color: #fd6767;
+  text-align: center;
+  margin: 10px auto;
+}
