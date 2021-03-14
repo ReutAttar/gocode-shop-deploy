@@ -8,7 +8,7 @@ const app = express();
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
 
-mongoose.connect("mongodb+srv://reut:1234@cluster0.uht1c.mongodb.net/gocodeshop?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -92,6 +92,6 @@ const port = process.env.PORT || 5000;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function () {
   app.listen(port, () => {
-    console.log("Example app listening on port 8000!");
+    console.log(`Example app listening on port ${port}!`);
   });
 });
