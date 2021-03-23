@@ -259,6 +259,14 @@ a {
   color: black;
   border-bottom: rgb(209, 209, 209) solid 3px;
 }
+.switch-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+button.admin {
+  width: auto !important;
+  padding: 0 5px !important;
+}
 
 button.switch {
   margin: 0;

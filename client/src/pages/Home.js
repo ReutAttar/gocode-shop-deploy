@@ -16,7 +16,12 @@ const Home = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch("/api/products"); //"https://fakestoreapi.com/products");
+      const res = await fetch("/api/products", {
+        method: "GET", // or 'PUT'
+        headers: {
+          "Content-Type": "text/html",
+        },
+      }); //"https://fakestoreapi.com/products");
       const json = await res.json();
       setProducts(json);
     }

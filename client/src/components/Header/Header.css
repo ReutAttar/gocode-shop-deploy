@@ -2,10 +2,11 @@
   font-size: 35px;
   font-weight: 300;
   flex: 1;
+  align-self: center;
 }
 .product-filter {
   display: flex;
-  padding: 30px 0;
+  padding: 30px 10px;
 }
 
 .sort {

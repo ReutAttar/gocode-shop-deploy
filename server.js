@@ -27,6 +27,27 @@ const productSchema = new mongoose.Schema({
   //slug: { type: String, unique: true }, // unique title for product url
 });
 
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  isAdmin: {
+    type: Boolean,
+    required: true,
+  },
+});
+
+const User = mongoose.model("User", userSchema);
 const Product = mongoose.model("Product", productSchema);
 
 app.get("/api/products", async (req, res) => {
@@ -60,6 +81,20 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
+app.post("/api/Login", async (req, res) => {
+  const { email, password } = req.body;
+  const user = await User.findOne({ email }).exec();
+  if (!user) {
+    res.send({ errorMessage: "user not exist" });
+    return;
+  }
+  if (user.password !== password) {
+    res.send({ errorMessage: "invalid password" });
+    return;
+  }
+  res.send(user);
+});
+
 app.post("/api/products", async (req, res) => {
   const { title, price, description, category, image } = req.body;
   const product = await new Product({ title, price, description, category, image }).save();
@@ -70,15 +105,17 @@ app.post("/api/products", async (req, res) => {
 //update price of specific product
 app.put("/api/products/:productId", async (req, res) => {
   const { productId } = req.params;
-  const { title, price, description, category, image } = req.body;
+  // const { title, price, description, category, image } = req.body;
+  console.log("req.body" + req.body);
 
-  await Product.updateOne(
-    { _id: productId },
-    { title, price, description, category, image },
-    { omitUndefined: true }
-  ).exec();
+  const product = await Product.findOneAndUpdate({ _id: productId }, req.body, {
+    omitUndefined: true,
+    runValidators: true,
+    new: true,
+  }).exec();
 
-  res.send("OK!");
+  console.log("returned product" + product);
+  res.send(product);
 });
 
 app.delete("/api/products/:productId", async (req, res) => {
