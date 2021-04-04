@@ -19,11 +19,11 @@ app.use(express.json());
 
 const productSchema = new mongoose.Schema({
   // id: String,
-  title: String,
-  price: Number,
-  description: String,
-  category: String,
-  image: String,
+  title: { type: String, required: true },
+  price: { type: Number, required: true },
+  description: { type: String, required: true },
+  category: { type: String, required: true },
+  image: { type: String, required: true },
   //slug: { type: String, unique: true }, // unique title for product url
 });
 
@@ -95,34 +95,33 @@ app.post("/api/Login", async (req, res) => {
   res.send(user);
 });
 
+//add new product
 app.post("/api/products", async (req, res) => {
-  const { title, price, description, category, image } = req.body;
-  const product = await new Product({ title, price, description, category, image }).save();
+  // const { title, price, description, category, image } = req.body;
+  const product = await new Product({ ...req.body }).save();
   // res.send("OK!");
   res.send(product);
 });
 
-//update price of specific product
+//update fields of specific product
 app.put("/api/products/:productId", async (req, res) => {
   const { productId } = req.params;
-  // const { title, price, description, category, image } = req.body;
-  console.log("req.body" + req.body);
-
   const product = await Product.findOneAndUpdate({ _id: productId }, req.body, {
     omitUndefined: true,
     runValidators: true,
     new: true,
   }).exec();
 
-  console.log("returned product" + product);
   res.send(product);
 });
 
 app.delete("/api/products/:productId", async (req, res) => {
   const { productId } = req.params;
   await Product.deleteOne({ _id: productId }).exec();
+  const products = await Product.find({}).exec();
 
-  res.send("OK!");
+  res.send(products);
+  // res.send({ status: "OK" });
 });
 
 const db = mongoose.connection;

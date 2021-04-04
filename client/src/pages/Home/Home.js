@@ -1,11 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
-import Products from "../components/Products/Products";
-import Header from "../components/Header/Header";
-import SaleCountDown from "../components/SaleCountDown/SaleCountDown";
-import SaleContext from "../contexts/SaleContext";
+import Products from "../../components/Products/Products";
+import Header from "../../components/Header/Header";
+import SaleCountDown from "../../components/SaleCountDown/SaleCountDown";
+import SaleContext from "../../contexts/SaleContext";
+import ProductsContext from "../../contexts/ProductsContext";
+import AdminContext from "../../contexts/AdminContext";
+import "./Home.css";
+import AddPopup from "../../components/Popups/Add/AddPopup";
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useContext(ProductsContext);
   const [categories, setCategories] = useState([]);
   const [filter, setFilter] = useState("All");
   const [priceRange, setPriceRange] = useState([0, 1000]);
@@ -13,6 +17,8 @@ const Home = () => {
   const [maxPrice, setMaxPrice] = useState(1000);
   // const [sale, setSale] = useState(true);
   const [sale, setSale] = useContext(SaleContext);
+  const [admin, setAdmin] = useContext(AdminContext);
+  const [showAddPopup, setShowAddPopup] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -27,7 +33,7 @@ const Home = () => {
     }
 
     fetchData();
-  }, []);
+  }, [setProducts]);
 
   useEffect(() => {
     const groupBy = (xs, key) =>
@@ -55,6 +61,7 @@ const Home = () => {
 
   return (
     <React.Fragment>
+      <SaleCountDown onFinish={setSale} />
       <Header
         selectedFilter={setFilter}
         categories={categories}
@@ -63,7 +70,20 @@ const Home = () => {
         MIN={minPrice}
         MAX={maxPrice}
       />
-      <SaleCountDown onFinish={setSale} />
+      {admin && (
+        <div className="addProduct-div">
+          <button className="addProduct-button" onClick={() => setShowAddPopup(true)}>
+            Add Product
+          </button>
+          {showAddPopup && (
+            <AddPopup
+              closePopup={() => {
+                setShowAddPopup(false);
+              }}
+            />
+          )}
+        </div>
+      )}
       <Products sale={sale} filter={filter} products={products} priceRange={priceRange} />
     </React.Fragment>
   );

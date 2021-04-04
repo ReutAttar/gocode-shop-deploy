@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { MY_APP_NAME } from "../../constants";
 import { Slider } from "antd";
 import ThemeContext from "../../contexts/ThemeContext";
+// import AdminContext from "../../contexts/AdminContext";
 
 const Header = ({ categories, selectedFilter, selectedRange, MIN, MAX }) => {
   const [minPrice, setMinPrice] = useState(MIN);
@@ -32,6 +33,7 @@ const Header = ({ categories, selectedFilter, selectedRange, MIN, MAX }) => {
       <h1 id="appTitle" style={{ color: theme.foreground }}>
         {MY_APP_NAME}
       </h1>
+
       <div className="filters">
         <div className="sort">
           <div className="collection-sort">

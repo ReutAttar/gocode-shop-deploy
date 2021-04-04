@@ -1,14 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./LoginPopup.css";
 import { CloseOutlined } from "@ant-design/icons";
-import AdminContext from "../../contexts/AdminContext";
+// import AdminContext from "../../contexts/AdminContext";
 
-const LoginPopup = (props) => {
+const LoginPopup = ({ setAdmin, closePopup }) => {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [admin, setadmin] = useContext(AdminContext);
+  // const [admin, setAdmin] = useContext(AdminContext);
 
   const login = async (email, password, close) => {
     const res = await fetch("/api/login", {
@@ -25,7 +25,7 @@ const LoginPopup = (props) => {
         setErrorMessage(data.errorMessage);
         setIsError(true);
       } else {
-        setadmin(true);
+        setAdmin(true);
         setIsError(false);
         setTimeout(close(), 60000);
       }
@@ -35,7 +35,7 @@ const LoginPopup = (props) => {
   return (
     <div className="popup">
       <div className="popup_inner">
-        <button className="close" onClick={props.closePopup}>
+        <button className="close" onClick={closePopup}>
           <CloseOutlined />
         </button>
         <div className="login">
@@ -59,7 +59,7 @@ const LoginPopup = (props) => {
               <button
                 className="submit"
                 onClick={() => {
-                  login(inputEmail, inputPassword, props.closePopup);
+                  login(inputEmail, inputPassword, closePopup);
                   //   setInputEmail("");
                   //   setInputPassword("");
                 }}
@@ -70,6 +70,7 @@ const LoginPopup = (props) => {
             {isError && <h3 style={{ color: "red" }}>{errorMessage}</h3>}
           </div>
         </div>
+        <br></br>
       </div>
     </div>
   );

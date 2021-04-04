@@ -11,12 +11,14 @@
   z-index: 10;
 }
 .popup_inner {
-  position: absolute;
-  left: 25%;
-  right: 25%;
+  /* position: absolute;
+  left: 35%;
+  right: 35%;
   top: 25%;
-  bottom: 25%;
-  margin: auto;
+  bottom: 25%; */
+  width: fit-content;
+  height: auto;
+  margin: 2% auto;
   border-radius: 20px;
   background: white;
 }
@@ -30,7 +32,7 @@
 }
 .login {
   position: relative;
-  margin: 30px auto;
+  margin: 30px;
   padding: 20px 20px 20px;
   width: 310px;
   background: white;
@@ -59,8 +61,8 @@
   margin: 10px 0px;
 }
 
-input[type="text"],
-input[type="password"] {
+.login input[type="text"],
+.login input[type="password"] {
   padding: 0 10px;
   height: 34px;
   border: 1px solid;
@@ -73,7 +75,7 @@ input[type="password"] {
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-  border-color: #7dc9e2;
+  border-color: #55b2d1;
   outline-color: #dceefc;
   outline-offset: 0;
 }
