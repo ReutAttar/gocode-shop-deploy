@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./LoginPopup.css";
 import { CloseOutlined } from "@ant-design/icons";
-// import AdminContext from "../../contexts/AdminContext";
+import AdminContext from "../../../contexts/AdminContext";
 
-const LoginPopup = ({ setAdmin, closePopup }) => {
+const LoginPopup = ({ closePopup }) => {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  // const [admin, setAdmin] = useContext(AdminContext);
+  const [admin, setAdmin] = useContext(AdminContext);
 
   const login = async (email, password, close) => {
     const res = await fetch("/api/login", {

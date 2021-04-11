@@ -5,9 +5,6 @@ import ProductsContext from "../../../contexts/ProductsContext";
 // import AdminContext from "../../contexts/AdminContext";
 
 const AddPopup = ({ closePopup }) => {
-  //   const [isError, setIsError] = useState(false);
-  //   const [errorMessage, setErrorMessage] = useState("");
-
   const [products, setProducts] = useContext(ProductsContext);
   const [product, setProduct] = useState({ title: "", price: "", description: "", category: "", image: "" });
 

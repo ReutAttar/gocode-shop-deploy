@@ -1,4 +1,6 @@
+import { HeartOutlined } from "@ant-design/icons";
 import React, { useContext, useEffect, useState } from "react";
+import CartAmountContext from "../../contexts/CartAmountContext";
 import SaleContext from "../../contexts/SaleContext";
 // import SaleCountDown from "../../components/SaleCountDown/SaleCountDown";
 // import ThemeContext from "../../contexts/ThemeContext";
@@ -7,6 +9,7 @@ import "./ProductPage.css";
 const ProductPage = ({ match }) => {
   const [product, setProduct] = useState({});
   const [sale] = useContext(SaleContext);
+  const [cartAmount, setCartAmount] = useContext(CartAmountContext);
 
   useEffect(() => {
     async function fetchData() {
@@ -31,7 +34,9 @@ const ProductPage = ({ match }) => {
           <div className="three"></div>
           <div className="four"></div>
         </div>
-        {(product.category === "women clothing" || product.category === "men clothing") && (
+        {(product.category === "women clothing" ||
+          (product.category === "men clothing" &&
+            product.title !== "FJALLRAVEN - FOLDSACK NO. 1 BACKPACK, FITS 15 LAPTOPS")) && (
           <React.Fragment>
             <p className="pick pTitle">choose size</p>
             <div className="sizes">
@@ -51,13 +56,25 @@ const ProductPage = ({ match }) => {
         <div className="product">
           <p className="pCategory pTitle">{product.category}</p>
           <h1 id="productTitle">{product.title}</h1>
-          <h2>{product.price}$</h2>
+          {sale ? (
+            <div>
+              <span className={"sale-price"}>{product.price * (50 / 100)}$</span>
+              <span className={"normal-price"}>{product.price}$</span>
+            </div>
+          ) : (
+            <h6>{product.price}$</h6>
+          )}
           <p className="desc">{product.description}</p>
 
           <div className="buttons">
-            <button className="add">Add to Cart</button>
+            <button className="add" onClick={() => setCartAmount(+cartAmount + 1)}>
+              Add to Cart
+            </button>
             <button className="like">
-              <span>♥</span>
+              <span>
+                <HeartOutlined />
+              </span>
+              {/* ♥ */}
             </button>
           </div>
         </div>
