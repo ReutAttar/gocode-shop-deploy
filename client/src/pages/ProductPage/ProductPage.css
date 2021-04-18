@@ -1,25 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
-/* $font: 'Lato', sans-serif;
-
-$white: #F5F5F5;
-$light: #E0C9CB;
-$tan: #C3A1A0;
-$pink: #D9AAB7;
-$rose: #BA7E7E;
-$dark: #4E4E4E; */
-
-/* center container in the middle */
-/* html {
-  display: grid;
-  min-height: 100%;
-}
-
-body {
-  display: grid;
-  background: #e0c9cb;
-  font-family: "Lato", sans-serif, sans-serif;
-  text-transform: uppercase;
-} */
 
 .container {
   font-family: "Lato", sans-serif, sans-serif;
@@ -29,7 +8,7 @@ body {
   margin: 15px auto;
   padding: 15px;
   /* overflow: hidden; */
-  width: 720px;
+  width: 80%;
   /* height: auto; */
   background: #ffffff;
   box-shadow: 5px 5px 15px rgb(186 126 126 / 25%);
@@ -54,7 +33,7 @@ body {
 }
 
 .images img {
-  width: 250px;
+  width: 65%;
   margin: 10px 0 15px 20px;
 }
 
@@ -183,4 +162,27 @@ body {
 
 .like {
   width: 22%;
+}
+
+.ant-notification-notice-message {
+  font-weight: 550;
+  font-size: 1.2em;
+  color: #100de8;
+}
+.ant-notification-notice {
+  border-radius: 5px;
+  border: #9e9e9e 1px solid;
+}
+.description-add-product {
+  display: flex;
+}
+.product-title {
+  font-size: 1.2em;
+  color: #4e4e4e;
+  font-weight: 500;
+}
+
+.description-add-product img {
+  width: 25%;
+  margin-left: 5px;
 }

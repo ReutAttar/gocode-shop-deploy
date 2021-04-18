@@ -38,6 +38,13 @@ app.get("/api/products/:productId", async (req, res) => {
   res.send(product ?? {});
 });
 
+// //get cart by id
+// app.get("/api/cart/:cartId", async (req, res) => {
+//   const { cartId } = req.params;
+//   const cart = await Product.findById(cartId).exec();
+//   res.send(cart ?? {});
+// });
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
@@ -54,15 +61,6 @@ app.post("/api/Login", async (req, res) => {
     res.send({ errorMessage: "invalid password" });
     return;
   }
-  // const user = await User.findOne({ email }).exec();
-  // if (!user) {
-  //   res.send({ errorMessage: "user not exist" });
-  //   return;
-  // }
-  // if (user.password !== password) {
-  //   res.send({ errorMessage: "invalid password" });
-  //   return;
-  // }
   res.send({ data: "Admin logged in" });
 });
 

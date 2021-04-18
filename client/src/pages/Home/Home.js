@@ -15,7 +15,6 @@ const Home = () => {
   const [priceRange, setPriceRange] = useState([0, 1000]);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(1000);
-  // const [sale, setSale] = useState(true);
   const [sale, setSale] = useContext(SaleContext);
   const [admin, setAdmin] = useContext(AdminContext);
   const [showAddPopup, setShowAddPopup] = useState(false);

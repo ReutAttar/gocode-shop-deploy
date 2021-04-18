@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Header.css";
 import PropTypes from "prop-types";
 import { MY_APP_NAME } from "../../constants";

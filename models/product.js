@@ -6,7 +6,8 @@ const productSchema = new mongoose.Schema({
   description: { type: String, required: true },
   category: { type: String, required: true },
   image: { type: String, required: true },
-  quantity: { type: Number },
+  quantity: { type: Number, required: true },
+  size: { type: Number },
   //slug: { type: String, unique: true }, // unique title for product url
 });
 

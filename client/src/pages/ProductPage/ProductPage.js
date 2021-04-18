@@ -1,15 +1,14 @@
 import { HeartOutlined } from "@ant-design/icons";
+import { notification } from "antd";
 import React, { useContext, useEffect, useState } from "react";
-import CartAmountContext from "../../contexts/CartAmountContext";
+import CartContext from "../../contexts/CartContext";
 import SaleContext from "../../contexts/SaleContext";
-// import SaleCountDown from "../../components/SaleCountDown/SaleCountDown";
-// import ThemeContext from "../../contexts/ThemeContext";
 import "./ProductPage.css";
 
 const ProductPage = ({ match }) => {
   const [product, setProduct] = useState({});
   const [sale] = useContext(SaleContext);
-  const [cartAmount, setCartAmount] = useContext(CartAmountContext);
+  const [cart, setCart] = useContext(CartContext);
 
   useEffect(() => {
     async function fetchData() {
@@ -20,6 +19,49 @@ const ProductPage = ({ match }) => {
 
     fetchData();
   }, [match.params.productId]);
+
+  const AddProductToCart = (productId) => {
+    const isProductExist = cart.products.find((product) => product.product === productId);
+    if (isProductExist) {
+      setCart({
+        ...cart,
+        products: cart.products.map(({ product, amount }) =>
+          product === productId ? { product, amount: +amount + 1 } : { product, amount }
+        ),
+      });
+    } else {
+      const newProduct = { product: productId, amount: 1 };
+      setCart({ ...cart, products: [...cart.products, newProduct] });
+    }
+  };
+
+  const openNotification = (placement) => {
+    notification.open({
+      message: "Item added to cart",
+      description: (
+        <div className="description-add-product">
+          <div
+            style={{
+              marginRight: "5px",
+            }}
+          >
+            <div className="product-title">{product.title}</div>
+            {sale && product.price > 60 ? (
+              <div>
+                <span className={"sale-price"}>{product.price * (50 / 100)}$</span>
+                <span className={"normal-price"}>{product.price}$</span>
+              </div>
+            ) : (
+              <h6>{product.price}$</h6>
+            )}
+          </div>
+          <img src={product.image} alt="productImg" />
+        </div>
+      ),
+      placement,
+      duration: 3,
+    });
+  };
 
   return product ? (
     <div className="container">
@@ -56,7 +98,7 @@ const ProductPage = ({ match }) => {
         <div className="product">
           <p className="pCategory pTitle">{product.category}</p>
           <h1 id="productTitle">{product.title}</h1>
-          {sale ? (
+          {sale && product.price > 60 ? (
             <div>
               <span className={"sale-price"}>{product.price * (50 / 100)}$</span>
               <span className={"normal-price"}>{product.price}$</span>
@@ -67,7 +109,13 @@ const ProductPage = ({ match }) => {
           <p className="desc">{product.description}</p>
 
           <div className="buttons">
-            <button className="add" onClick={() => setCartAmount(+cartAmount + 1)}>
+            <button
+              className="add"
+              onClick={() => {
+                AddProductToCart(product._id);
+                openNotification("topRight");
+              }}
+            >
               Add to Cart
             </button>
             <button className="like">
