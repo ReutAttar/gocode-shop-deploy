@@ -2,14 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import "./UpdatePopup.css";
 import { CloseOutlined } from "@ant-design/icons";
 import ProductsContext from "../../../contexts/ProductsContext";
-// import AdminContext from "../../contexts/AdminContext";
 
 const UpdatePopup = ({ id, closePopup }) => {
-  //   const [inputEmail, setInputEmail] = useState("");
-  //   const [inputPassword, setInputPassword] = useState("");
-  //   const [isError, setIsError] = useState(false);
-  //   const [errorMessage, setErrorMessage] = useState("");
-  //   const [admin, setAdmin] = useContext(AdminContext);
   const [products, setProducts] = useContext(ProductsContext);
   const [product, setProduct] = useState({ title: "", price: "", description: "", category: "", image: "" });
   // const [imgUrl, setImgUrl]=useState(null);
@@ -40,17 +34,6 @@ const UpdatePopup = ({ id, closePopup }) => {
     });
     setProducts(newData);
     setTimeout(close(), 60000);
-
-    // if (data) {
-    //   if (data.errorMessage) {
-    //     setErrorMessage(data.errorMessage);
-    //     setIsError(true);
-    //   } else {
-    //     // setadmin(true);
-    //     setIsError(false);
-    //     // setTimeout(close(), 60000);
-    //   }
-    // }
   };
 
   return (

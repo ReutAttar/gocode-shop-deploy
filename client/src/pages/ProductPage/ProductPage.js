@@ -59,7 +59,7 @@ const ProductPage = ({ match }) => {
         </div>
       ),
       placement,
-      duration: 3,
+      duration: 2,
     });
   };
 

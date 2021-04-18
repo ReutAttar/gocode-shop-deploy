@@ -33,8 +33,8 @@ const App = () => {
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 480, itemsToShow: 2 },
+    // { width: 600, itemsToShow: 3 },
     { width: 768, itemsToShow: 3 },
-    { width: 1200, itemsToShow: 4 },
   ];
 
   useEffect(() => {
@@ -130,7 +130,12 @@ const App = () => {
                             content={
                               cart &&
                               (cart.products.length === 0 ? (
-                                <div>Your cart is empty</div>
+                                <div className="empty-cart">
+                                  <img
+                                    src="https://www.apnashopping.in/assets/img/payment/Empty-Cart.jpg"
+                                    alt="empty-cart"
+                                  ></img>
+                                </div>
                               ) : (
                                 <div className="cart-menu">
                                   <div className="cart-menu-details">
@@ -158,7 +163,6 @@ const App = () => {
                                                 className="card-image"
                                                 alt="example"
                                                 src={getProductDetails(product, "image")}
-                                                key={product}
                                               />
                                             }
                                           >

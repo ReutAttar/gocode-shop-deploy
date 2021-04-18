@@ -307,11 +307,18 @@ button.admin {
 }
 .ant-popover {
   left: 5% !important;
-  top: 73px;
+  top: 73px !important;
   /* transform-origin: 0px -4px; */
   width: 90%;
 }
+.empty-cart {
+  display: flex;
+}
 
+.empty-cart img {
+  width: 80%;
+  margin: auto;
+}
 .ant-popover-arrow {
   display: none;
 }
