@@ -19,20 +19,20 @@ const Home = () => {
   const [admin, setAdmin] = useContext(AdminContext);
   const [showAddPopup, setShowAddPopup] = useState(false);
 
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch("/api/products", {
-        method: "GET", // or 'PUT'
-        headers: {
-          "Content-Type": "text/html",
-        },
-      }); //"https://fakestoreapi.com/products");
-      const json = await res.json();
-      setProducts(json);
-    }
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const res = await fetch("/api/products", {
+  //       method: "GET", // or 'PUT'
+  //       headers: {
+  //         "Content-Type": "text/html",
+  //       },
+  //     }); //"https://fakestoreapi.com/products");
+  //     const json = await res.json();
+  //     setProducts(json);
+  //   }
 
-    fetchData();
-  }, [setProducts]);
+  //   fetchData();
+  // }, [setProducts]);
 
   useEffect(() => {
     const groupBy = (xs, key) =>

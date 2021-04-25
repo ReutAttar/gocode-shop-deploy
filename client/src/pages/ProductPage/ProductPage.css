@@ -1,5 +1,40 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 
+@media (min-width: 920px) {
+  .left {
+    width: 40%;
+  }
+
+  .right {
+    width: 60%;
+  }
+}
+@media (max-width: 920px) {
+  .left {
+    width: 40%;
+  }
+
+  .right {
+    width: 60%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+  .left {
+    width: 100%;
+    /* display: flex;
+    flex-direction: column; */
+  }
+
+  .right {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
 .container {
   font-family: "Lato", sans-serif, sans-serif;
   /*position: relative; */
@@ -17,13 +52,8 @@
 }
 
 .left {
-  width: 40%;
   display: flex;
   flex-direction: column;
-}
-
-.right {
-  width: 60%;
 }
 
 .pTitle {
@@ -32,9 +62,14 @@
   color: #2b3648;
 }
 
+.images {
+  display: flex;
+}
+
 .images img {
   width: 65%;
-  margin: 10px 0 15px 20px;
+  /* margin: 10px 0 15px 20px; */
+  margin: 0 auto 15px auto;
 }
 
 .slideshow-buttons {
@@ -103,7 +138,7 @@
 }
 
 .product {
-  padding-left: 30px;
+  padding: 0 30px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -138,7 +173,7 @@
 .buttons {
   margin-top: auto;
 }
-.buttons button {
+/* .buttons button {
   background: #171661;
   padding: 10px;
   display: inline-block;
@@ -150,14 +185,35 @@
   letter-spacing: 1px;
   color: #f5f5f5;
   cursor: pointer;
-}
-.buttons button:hover {
+} */
+/* .buttons button:hover {
   background: #ba7e7e;
   transition: all 0.4s ease-in-out;
-}
+} */
 
 .add {
-  width: 67%;
+  width: 70%;
+  box-shadow: 0px 10px 14px -7px #4eadad;
+  background: linear-gradient(to bottom, #5d949d 5%, #185e5e 100%);
+  background-color: #599bb3;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 20px;
+  /* font-weight: bold; */
+  padding: 15px 20px;
+  text-shadow: 0px 1px 0px #3d768a;
+  border: none;
+  letter-spacing: 1px;
+}
+
+.add:hover {
+  background: linear-gradient(to bottom, #408c99 5%, #009688 100%);
+  background-color: #408c99;
+}
+.add:active {
+  position: relative;
+  top: 1px;
 }
 
 .like {

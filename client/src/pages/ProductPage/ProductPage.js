@@ -118,12 +118,11 @@ const ProductPage = ({ match }) => {
             >
               Add to Cart
             </button>
-            <button className="like">
+            {/* <button className="like">
               <span>
                 <HeartOutlined />
               </span>
-              {/* ♥ */}
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

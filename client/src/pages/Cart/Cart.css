@@ -5,33 +5,138 @@
   padding-left: 20px;
 }
 .processing {
-  width: 35%;
-  background-color: #f6f8fd;
+  width: 30%;
+  background-color: azure;
   border: 1px solid #f0f0f0;
 }
 .products-list-wrapper {
-  width: 50%;
-  margin-right: 15%;
+  width: 60%;
+  margin-right: 10%;
 }
 .product-item {
   display: flex;
-  padding: 30px 20px;
+  padding: 30px 10px;
   border-bottom: 1px solid #f0f0f0;
+}
+.cart-image {
+  width: 140px;
 }
 .cart-product-info-wrapper {
   display: flex;
   margin-left: 20px;
+  width: 100%;
 }
 .cart-product-info {
   line-height: 1.5em;
+  margin: 10px auto;
+  width: 60%;
 }
 .cart-product-info h1 {
   font-weight: 500;
 }
-
-.cart-image {
-  width: 140px;
+.input_group {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 50px;
 }
+
+.btn {
+  border: 1px solid #e0e0e0;
+  color: #918d8d;
+  background-color: white;
+  font-size: 16px;
+  font-weight: bold;
+  height: 30px;
+}
+.btn:hover,
+:focus {
+  border-color: #0c3d5d;
+  color: #0c3d5d;
+  cursor: pointer;
+}
+
+.minus {
+  border-radius: 100px 0 0 100px;
+  padding: 0.2em 0.5em;
+}
+
+.plus {
+  border-radius: 0 100px 100px 0;
+  padding: 0.2em 0.45em;
+}
+
+.amount-span {
+  margin-right: 10px;
+}
+
+.input-field::-webkit-outer-spin-button,
+.input-field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-field {
+  text-align: center;
+  padding: 2px 0;
+  border: 1px solid #e0e0e0;
+  width: 15%;
+  background-color: white;
+}
+.input-field:hover,
+:focus {
+  outline: none;
+  border-color: #0c3d5d;
+  color: #0c3d5d;
+  cursor: pointer;
+}
+
 .cart-product-total {
-  margin-left: 20px;
+  margin: 13px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+  text-align: end;
+}
+
+.div-total-price {
+  font-weight: bold;
+}
+
+.remove-product-btn {
+  padding: 0.5em 0.85em;
+  align-self: flex-end;
+  border: 1px solid #d1d1d1;
+  border-radius: 20px;
+  font-size: 16px;
+  text-align: center;
+  color: #8e8e8e;
+  /* width: 100%; */
+  background-color: transparent;
+  transition: color 0.3s ease, border 0.3s ease;
+}
+
+.remove-product-btn:hover {
+  color: #d21919;
+  border-color: #d21919;
+  cursor: pointer;
+}
+
+.to_purchase_btn {
+  padding: 0.3em 0.85em;
+  margin: 10px auto;
+  /* border: 1px solid #ffffff; */
+  border-radius: 20px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #5e5e5e;
+  width: 218px;
+  height: 38px;
+}
+
+.to_purchase_btn:hover {
+  color: #5e5e5e;
+  background-color: #ffffff;
+  cursor: pointer;
 }
