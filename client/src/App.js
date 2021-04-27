@@ -90,9 +90,9 @@ const App = () => {
                     <li>
                       <Link to="/">Home</Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link to="/about">About</Link>
-                    </li>
+                    </li> */}
                     <li>
                       {/* <Link> */}
                       <a>
@@ -107,9 +107,9 @@ const App = () => {
                   <Route path="/products/:productId" component={ProductPage} />
                   <Route path="/cart" component={Cart} />
 
-                  <Route path="/about">
+                  {/* <Route path="/about">
                     <About />
-                  </Route>
+                  </Route> */}
                   <Route path="/">
                     <Home />
                   </Route>

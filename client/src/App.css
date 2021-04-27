@@ -222,26 +222,28 @@ body {
   .onSale-label {
     left: -35px;
   }
+  #appTitle {
+    margin-bottom: 20px;
+  }
+  .product-filter {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 480px) {
-  h1 {
+  /* #appTitle {
     margin-bottom: 20px;
-  }
+  } */
   .onSale-label {
     left: -30px;
   }
 
-  .product-filter {
+  /* .product-filter {
     flex-direction: column;
-  }
+  } */
 
   .sort {
     align-self: flex-start;
-  }
-
-  .cart-menu {
-    flex-direction: column;
   }
 }
 

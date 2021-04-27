@@ -1,35 +1,84 @@
+@media (max-width: 750px) {
+  .cart-container {
+    flex-direction: column;
+  }
+  .products-list-wrapper {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .cart-product-info-wrapper {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cart-product-info {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .cart-product-total {
+    margin: 13px 0 !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .processing {
+    width: 100% !important;
+  }
+  .cart-summary {
+    position: static !important;
+    width: 90% !important;
+    margin: 20px 0 20px 15px !important;
+  }
+}
+
+.to-purchase-btn {
+  padding: 0.3em 0.85em;
+  margin: 10px auto;
+  border-radius: 20px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #5e5e5e;
+  width: 218px;
+  height: 38px;
+}
+
+.to-purchase-btn:hover {
+  color: #5e5e5e;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
 .cart-container {
   display: flex;
-  flex-direction: row-reverse;
   background-color: white;
-  padding-left: 20px;
+  /* padding-left: 20px; */
 }
-.processing {
-  width: 30%;
-  background-color: azure;
-  border: 1px solid #f0f0f0;
-}
+
 .products-list-wrapper {
   width: 60%;
-  margin-right: 10%;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 .product-item {
   display: flex;
   padding: 30px 10px;
   border-bottom: 1px solid #f0f0f0;
 }
-.cart-image {
+.link-cart-product {
+  margin: auto 0;
+}
+.cart-product-image {
   width: 140px;
 }
 .cart-product-info-wrapper {
   display: flex;
   margin-left: 20px;
-  width: 100%;
+  /* width: 100%; */
 }
 .cart-product-info {
   line-height: 1.5em;
   margin: 10px auto;
-  width: 60%;
+  /* width: 60%; */
 }
 .cart-product-info h1 {
   font-weight: 500;
@@ -41,11 +90,14 @@
   height: 50px;
 }
 
+.amount-span {
+  margin-right: 10px;
+}
+
 .btn {
   border: 1px solid #e0e0e0;
   color: #918d8d;
   background-color: white;
-  font-size: 16px;
   font-weight: bold;
   height: 30px;
 }
@@ -66,10 +118,6 @@
   padding: 0.2em 0.45em;
 }
 
-.amount-span {
-  margin-right: 10px;
-}
-
 .input-field::-webkit-outer-spin-button,
 .input-field::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -80,7 +128,7 @@
   text-align: center;
   padding: 2px 0;
   border: 1px solid #e0e0e0;
-  width: 15%;
+  width: 10%;
   background-color: white;
 }
 .input-field:hover,
@@ -96,7 +144,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 30%;
+  /* width: 40%; */
   text-align: end;
 }
 
@@ -123,20 +171,59 @@
   cursor: pointer;
 }
 
-.to_purchase_btn {
-  padding: 0.3em 0.85em;
-  margin: 10px auto;
-  /* border: 1px solid #ffffff; */
-  border-radius: 20px;
-  text-align: center;
-  color: #ffffff;
-  background-color: #5e5e5e;
-  width: 218px;
-  height: 38px;
+.processing {
+  width: 30%;
+  /* border: 1px solid black; */
+  /* height: fit-content; */
 }
 
-.to_purchase_btn:hover {
-  color: #5e5e5e;
-  background-color: #ffffff;
+.cart-summary {
+  padding: 24px;
+  margin: 20px 10px 20px 0;
+  text-align: center;
+  width: 25%;
+  position: fixed;
+  background-color: azure;
+  border: 1px solid #f0f0f0;
+}
+.cart-summary-title {
+  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: 600;
+}
+.order-summary {
+  margin: 30px 0;
+}
+.cart-subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid #80808040;
+  border-top: 1px solid #80808040;
+}
+.total-pay {
+  font-size: 20px;
+}
+
+.check-btn {
+  box-shadow: 0px 10px 14px -7px #4eadad;
+  background: linear-gradient(to bottom, #5d949d 5%, #185e5e 100%);
+  background-color: #599bb3;
+  border-radius: 8px;
   cursor: pointer;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px;
+  text-shadow: 0px 1px 0px #3d768a;
+  border: none;
+}
+.check-btn:hover {
+  background: linear-gradient(to bottom, #408c99 5%, #009688 100%);
+  background-color: #408c99;
+}
+.check-btn:active {
+  position: relative;
+  top: 1px;
 }

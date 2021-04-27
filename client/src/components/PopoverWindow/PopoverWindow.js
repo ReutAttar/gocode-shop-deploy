@@ -70,20 +70,6 @@ const PopoverWindow = () => {
           </div>
         ) : (
           <div className="cart-menu">
-            <div className="cart-menu-details">
-              <div>
-                <p>{calcTotalAmount()} products at cart</p>
-                {/* <Link to={"/cart"}>View shopping cart</Link> */}
-              </div>
-              <div>
-                <div>
-                  Total: <span>{calcTotalPay()}</span>$
-                </div>
-                <Link to={"/cart"} onClick={() => setClickedPopover(false)}>
-                  <button className="view-cart">View shopping cart</button>
-                </Link>
-              </div>
-            </div>
             <div className="cart-menu-carousel">
               <Carousel itemPadding={[10, 5]} breakPoints={breakPoints}>
                 {cart.products.map(({ product, amount }) => (
@@ -116,6 +102,19 @@ const PopoverWindow = () => {
                   </Link>
                 ))}
               </Carousel>
+            </div>
+            <div className="cart-menu-details">
+              <div>
+                <p>{calcTotalAmount()} products at cart</p>
+              </div>
+              <div>
+                <div>
+                  Total: <span>{calcTotalPay()}</span>$
+                </div>
+                <Link to={"/cart"} onClick={() => setClickedPopover(false)}>
+                  <button className="view-cart-btn">View shopping cart</button>
+                </Link>
+              </div>
             </div>
           </div>
         ))

@@ -9,6 +9,24 @@ const Cart = () => {
   const [cart, setCart] = useContext(CartContext);
   const [products, setProducts] = useContext(ProductsContext);
 
+  var reducer = (accumulator, currentValue) => {
+    return accumulator + currentValue;
+  };
+
+  const calcTotalPay = () => {
+    return cart
+      ? cart.products.length === 0
+        ? 0
+        : cart.products
+            .map((product) => {
+              const oneProduct = products.find((p) => p._id === product.product);
+              return oneProduct ? oneProduct.price * product.amount : 0;
+            })
+            .reduce(reducer)
+            .toFixed(2)
+      : 0;
+  };
+
   const calcTotalPrice = (productId, amount) => {
     const product = products.find((p) => p._id === productId);
     return product ? (product.price * amount).toFixed(2) : 0;
@@ -59,17 +77,16 @@ const Cart = () => {
       <div className="empty-cart">
         <img src="https://www.apnashopping.in/assets/img/payment/Empty-Cart.jpg" alt="empty-cart"></img>
         <Link to={"/"} style={{ textAlign: " center" }}>
-          <button className="to_purchase_btn">To purchase</button>
+          <button className="to-purchase-btn">To purchase</button>
         </Link>
       </div>
     ) : (
       <div className="cart-container">
-        <div className="processing"></div>
         <div className="products-list-wrapper">
           {cart.products.map(({ product, amount }) => (
             <div className="product-item" key={product}>
-              <Link to={`/products/${product}`}>
-                <img className="cart-image" alt="example" src={getProductDetails(product, "image")} />
+              <Link className="link-cart-product" to={`/products/${product}`}>
+                <img className="cart-product-image" alt="example" src={getProductDetails(product, "image")} />
               </Link>
               <div className="cart-product-info-wrapper">
                 <div className="cart-product-info">
@@ -97,7 +114,6 @@ const Cart = () => {
                       </button>
                     </div>
 
-                    {/* <span>amount: {amount}</span> */}
                     <div>price: {getProductDetails(product, "price")}$</div>
                   </div>
                 </div>
@@ -126,6 +142,22 @@ const Cart = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="processing">
+          <div className="cart-summary">
+            <div className="cart-summary-title">
+              <h4>Order Summary</h4>
+            </div>
+            <div className="order-summary">
+              <div className="cart-subtotal">
+                <span>subtotal</span>
+                <span className="total-pay">{calcTotalPay()}$</span>
+              </div>
+              <div>
+                <button className="check-btn">checkout securely</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     ))
