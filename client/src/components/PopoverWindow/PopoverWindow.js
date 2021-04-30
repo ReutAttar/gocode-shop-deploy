@@ -15,9 +15,9 @@ const PopoverWindow = () => {
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
-    { width: 400, itemsToShow: 2 },
-    { width: 600, itemsToShow: 3 },
-    // { width: 768, itemsToShow: 3 },
+    { width: 340, itemsToShow: 2 },
+    { width: 540, itemsToShow: 3 },
+    // { width: 768, itemsToShow: 4 },
   ];
 
   useEffect(() => {

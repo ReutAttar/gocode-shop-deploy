@@ -27,7 +27,7 @@
   .cart-summary {
     position: static !important;
     width: 90% !important;
-    margin: 20px 0 20px 15px !important;
+    margin: 20px 0 20px 20px !important;
   }
 }
 
@@ -152,7 +152,7 @@
   font-weight: bold;
 }
 
-.remove-product-btn {
+.cart-remove-product-btn {
   padding: 0.5em 0.85em;
   align-self: flex-end;
   border: 1px solid #d1d1d1;
@@ -165,7 +165,7 @@
   transition: color 0.3s ease, border 0.3s ease;
 }
 
-.remove-product-btn:hover {
+.cart-remove-product-btn:hover {
   color: #d21919;
   border-color: #d21919;
   cursor: pointer;

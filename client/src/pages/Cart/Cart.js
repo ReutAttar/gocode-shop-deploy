@@ -122,7 +122,7 @@ const Cart = () => {
                     <span>{calcTotalPrice(product, amount)}</span>$
                   </div>
                   <button
-                    className="remove-product-btn"
+                    className="cart-remove-product-btn"
                     onClick={() =>
                       Swal.fire({
                         title: "Are you sure you want to remove this product?",
